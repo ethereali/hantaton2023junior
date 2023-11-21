@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://hackathon.uriit.ru/2023/tasks/ -->
+<html lang="ru" class="bx-core bx-mac bx-no-touch bx-no-retina bx-chrome"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<script type="text/javascript" async="" src="./index_files/ba.js"></script><script type="text/javascript" data-skip-moving="true">(function(w, d, n) {var cl = "bx-core";var ht = d.documentElement;var htc = ht ? ht.className : undefined;if (htc === undefined || htc.indexOf(cl) !== -1){return;}var ua = n.userAgent;if (/(iPad;)|(iPhone;)/i.test(ua)){cl += " bx-ios";}else if (/Windows/i.test(ua)){cl += ' bx-win';}else if (/Macintosh/i.test(ua)){cl += " bx-mac";}else if (/Linux/i.test(ua) && !/Android/i.test(ua)){cl += " bx-linux";}else if (/Android/i.test(ua)){cl += " bx-android";}cl += (/(ipad|iphone|android|mobile|touch)/i.test(ua) ? " bx-touch" : " bx-no-touch");cl += w.devicePixelRatio && w.devicePixelRatio >= 2? " bx-retina": " bx-no-retina";var ieVersion = -1;if (/AppleWebKit/.test(ua)){cl += " bx-chrome";}else if (/Opera/.test(ua)){cl += " bx-opera";}else if (/Firefox/.test(ua)){cl += " bx-firefox";}ht.className = htc ? htc + " " + cl : cl;})(window, document, navigator);</script>
+
+
+<link href="./index_files/css" type="text/css" rel="stylesheet">
+<link href="./index_files/css2" type="text/css" rel="stylesheet">
+<link href="./index_files/fancybox.css" type="text/css" rel="stylesheet">
+<link href="./index_files/bootstrap-select.min.css" type="text/css" rel="stylesheet">
+<link href="./index_files/page_802dfa4d0b176432e0211d50fc9a08d5_v1.css" type="text/css" rel="stylesheet">
+<link href="./index_files/template_f08aac12760c681fde81214f3a41ea1b_v1.css" type="text/css" data-template-style="true" rel="stylesheet">
+
+
+
+
+
+
+
+    <title>Задания</title>
+
+    
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicons -->
+    <link href="https://hackathon.uriit.ru/local/templates/hakaton_v6_2023/images/icon/logo_main_second.svg" rel="icon">
+
+        <style>.SmartCaptcha-Overlay {
+  position: fixed;
+  z-index: 9999999;
+  top: -10000px;
+  left: -10000px;
+
+  width: 100%;
+  width: var(--smart-captcha-doc-width, 100%);
+  height: 100%;
+  height: var(--smart-captcha-doc-height, 100%);
+  margin: 0;
+  padding: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.SmartCaptcha-Overlay.SmartCaptcha-Overlay_visible {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.SmartCaptcha-Overlay.SmartCaptcha-Overlay_no_background {
+  background: none;
+}
+
+.SmartCaptcha-Overlay .SmartCaptcha-Spin {
+  position: absolute;
+  top: 50%;
+  /* stylelint-disable */
+  left: 0;
+  right: 0;
+  /* stylelint-enable */
+
+  margin: auto;
+
+  transform: translateY(-50%);
+}
+</style><style>.SmartCaptcha-Spin {
+  display: none;
+  visibility: hidden;
+
+  box-sizing: border-box;
+
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+/* Для правильного позиционирования блока относительно baseline */
+.SmartCaptcha-Spin::after {
+  visibility: hidden;
+
+  content: '\00A0'; /* &nbsp; */
+}
+
+/*
+(1) https://st.yandex-team.ru/ISL-6342
+    Добавлена задержка начала анимации, что заставляет её нормально работать в iOS 12-
+    Решение взято отсюда:
+    https://stackoverflow.com/questions/29219534/css-animation-not-always-starting-in-ios-8-safari
+*/
+.SmartCaptcha-Overlay_visible.SmartCaptcha-Overlay_show_spinner .SmartCaptcha-Spin {
+  display: inline-block;
+  visibility: visible;
+
+  width: 50px;
+  height: 50px;
+
+  border-top-color: #5282FF;
+  border-left-color: #5282FF;
+
+  animation: islands-spin 1s .21s infinite linear; /* (1) */
+
+  backface-visibility: hidden;  /* Для ускорения анимации */
+}
+ .SmartCaptcha-Overlay_visible.SmartCaptcha-Overlay_show_spinner .SmartCaptcha-Spin {
+  border-top-color: var(--spin-view-default-border-color, #5282FF);
+  border-left-color: var(--spin-view-default-border-color, #5282FF);
+}
+
+@keyframes islands-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style><style>.smart-captcha {
+  min-width: 300px;
+  height: 102px;
+}
+
+.smart-captcha_invisible {
+  height: 0;
+}
+</style><link rel="prefetch" as="script" href="https://smartcaptcha.yandexcloud.net/shield.92b352a1c535daccf62d.chunk.js"></head>
+<body>
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="panel" id="panel"></div>
+                    <nav class="navbar navbar-expand-lg u-navbar d-flex justify-content-between" id="headerNav">
+    <div class="container-fluid">
+                <!-- ***** Menu Start ***** -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+                    <div class="dropdown u-navbar__dropdown d-block d-lg-none">
+                <a class="dropdown-toggle u-navbar__img" role="button" data-bs-toggle="dropdown">
+                </a>
+
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="https://hackathon.uriit.ru/2023/auth/">Личный кабинет</a>
+                    </li>
+                    <li><a class="dropdown-item" href="https://hackathon.uriit.ru/2023/auth/?logout=yes">Выйти</a>
+                    </li>
+                </ul>
+            </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                                
+                                                                                                                                                                <li class="dropdown-item"><a href="https://hackathon.uriit.ru/2023/tasks" class="nav-link scrollto  selected">
+                                                            Задания</a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item"><a href="https://hackathon.uriit.ru/#mentors" class="nav-link scrollto ">
+                                                            Менторы</a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item"><a href="https://hackathon.uriit.ru/#information" class="nav-link scrollto ">
+                                                            Информация для участников</a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item"><a href="https://hackathon.uriit.ru/#organizers" class="nav-link scrollto ">
+                                                            Организаторы</a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item"><a href="https://hackathon.uriit.ru/#contact" class="nav-link scrollto ">
+                                                            Контакты</a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                
+                                                        <li class="nav-item dropdown">
+                            <a href="https://hackathon.uriit.ru/2023/tasks/#" class="nav-link dropdown-toggle " aria-expanded="false">Архив</a>
+                            <ul class="dropdown-menu u-dropdown">
+                                                                
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item">
+                                                    <a href="https://hackathon.uriit.ru/2022/" target="_blank">
+                                                        2022                                                    </a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item">
+                                                    <a href="https://hackathon.uriit.ru/2021/" target="_blank">
+                                                        2021                                                    </a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item">
+                                                    <a href="https://hackathon.uriit.ru/2020/" target="_blank">
+                                                        2020                                                    </a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item">
+                                                    <a href="https://hackathon.uriit.ru/2019/" target="_blank">
+                                                        2019                                                    </a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item">
+                                                    <a href="https://hackathon.uriit.ru/2018/" target="_blank">
+                                                        2018                                                    </a></li>
+                                                
+                                            
+                                        
+                                        
+                                                        
+                                                                                                                                                                <li class="dropdown-item">
+                                                    <a href="https://hackathon.uriit.ru/2017/" target="_blank">
+                                                        2017                                                    </a></li>
+                                                
+                                            
+                                        
+                                        
+                                        
+                                                                                    </ul></li>                                        
+                                    </ul>
+                                    <!-- ***** Menu End ***** -->
+                                    
+
+                                                                                                                    <div class="dropdown u-navbar__dropdown d-none d-lg-block">
+                                            <div class="input-group align-items-center">
+                                                <div class="dropdown-toggle u-navbar__img input-group" role="button" data-bs-toggle="dropdown"></div>
+                                                <span class="ps-2">hello my darling</span>
+                                            </div>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="https://hackathon.uriit.ru/2023/auth/">Личный кабинет</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="https://hackathon.uriit.ru/2023/auth/?logout=yes">Выйти</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    
+        </div>
+    </div>
+</nav></header>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Page Area Start ***** -->
+<div class="page-heading" id="content">
+      
+        <div class="container u-page__top">
+            <div class="u-page__top-space">
+                <a href="https://hackathon.uriit.ru/2023/">
+                    <img src="./index_files/logo_main.svg" class="u-logo__main">
+                </a>
+            </div>
+                            <a class="u-text-red" href="https://hackathon.uriit.ru/2023/">
+                    <img class="u-page__link_arrow" src="./index_files/arrow_red.svg">
+                    Вернуться на главную</a>
+                    </div>
+                <!--    Вывод сообщения пользователю-->
+    <div id="notificationResponse" class="toast-container p-3 top-0 end-0 position-fixed">
+        <div id="liveToast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <img src="./index_files/video__bg-planet.svg" class="u-judge__bg-planet_left position-absolute">
+    <div class="container u-block">
+        <h2 class="u-title text-uppercase u-font-secondary wow animate__animated animate__fadeIn">
+            Задания
+        </h2>
+        
+    <div class="row gx-4 u-tasks">
+        <div class="col-12 col-lg-4">
+            <nav class="u-tasks__nav">
+                <div class="row gy-3 flex-column u-tasks px-3 px-lg-0" id="nav-tab" role="tablist">
+                                                                        <button class="u-tasks__tab active" data-bs-toggle="tab" data-bs-target="#nav-759" type="button" role="tab" aria-controls="nav-profile" aria-selected="true">
+                                Игра монополия "Цифровая Югра"                                                                    <div class="u-text-small u-text-red mt-1">
+                                        Задание повышенной сложности
+                                    </div>
+                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-725" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Мобильное приложение - агрегатор городских культурных мест, мероприятий и событий пользователей                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-724" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Онлайн система планирования отпусков работников исполнительных органов                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-722" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Творчесая задача (Турнирная киберспортивная платформа)                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-720" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Веб приложение одаренных детей Югры                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-711" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Чат бот точек сбора и переработки отходов в Югре                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-706" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Чат-бот в Telegram в рабочие чаты с клиентами агентства                                                                    <div class="u-text-small u-text-red mt-1">
+                                        Задание повышенной сложности
+                                    </div>
+                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-702" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Чат бот портала «Цифровой гражданин Югры»                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-698" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                «Таск-менеджер» для театра                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-668" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                «Определение новостной повестки и ее содержимого по категориям»                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-660" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Чат-бот для telegram-канала «Технопарк Югры.INFO»                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-655" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                "НЭО- пациент - Мобильное приложение для поддержки онкологических пациентов с нейроэндокринными опухолями"                                                                    <div class="u-text-small u-text-red mt-1">
+                                        Задание повышенной сложности
+                                    </div>
+                                                            </button>
+                                                                                                <button class="u-tasks__tab" data-bs-toggle="tab" data-bs-target="#nav-653" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">
+                                Мобильное приложение по поиску работы для лифтовиков                                                            </button>
+                                                            </div>
+            </nav>
+        </div>
+        <div class="col-12 col-lg-8">
+            <div class="tab-content" id="nav-tabContent">
+                                                            <div class="tab-pane fade u-tasks__main active show" id="nav-759" role="tabpanel">
+                                                            <div class="u-text-small u-text-red">
+                                    Задание повышенной сложности
+                                </div>
+                                <div class="u-tasks__space">
+                                    Возможно получение дополнительных баллов
+                                </div>
+                                                        <h2 class="u-subtitle u-tasks__space">Игра монополия "Цифровая Югра"</h2>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><div>
+</div>
+<div>
+</div>
+<div style="text-align: justify;">
+	 Создать уникальную игру (монополия), адаптированную специально для Югры, которая позволит пользователям погрузиться в мир цифровизации Югры. <br>
+	 &nbsp; <br>
+</div>
+<div style="text-align: justify;">
+	<b>Основные функциональные требования:</b>
+</div>
+<div>
+	<ul>
+		<li>Возможность играть как в одиночку, так и с друзьями онлайн.</li>
+		<li>Наличие сюжета, основанного на реальных событиях и локациях Югры.</li>
+		<li>Возможность выбора персонажа и его прокачки.</li>
+		<li>Покупка участков земли, строительство объектов</li>
+		<li>Разработка уникальных правил и возможностей, адаптированных специально для региона </li>
+		<li>Создание захватывающего игрового мира с уникальным дизайном и графикой.</li>
+	</ul>
+</div>
+<p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+</p>
+<div>
+	<b>Технические требования:</b> <br>
+	<ul>
+		<li>Разработка приложения для мобильных устройств (iOS и Android) с использованием современных технологий разработки</li>
+		<li>Интеграция онлайн-режима игры с возможностью соревноваться с другими игроками. </li>
+		<li>Обеспечение стабильной работы приложения и минимизация времени загрузки игровых элементов. </li>
+		<li>Разработка удобного интерфейса пользователя для комфортной игры на мобильных устройствах.</li>
+	</ul>
+</div>
+<p style="text-align: justify;">
+</p></div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space"><div><br></div><div>&nbsp;Игра должна быть разработана для мобильных устройств (iOS и Android) и ПК.<br>
+– Наличие сюжета, основанного на реальных событиях и локациях Югры.<br>
+– Создание различных уровней игры, каждый из которых посвящен определенной теме, связанной с регионом.<br>
+– Возможность выбора персонажа и его прокачки.<br>
+– Реалистичная графика и визуальные эффекты.<br>
+– Интерактивные элементы на уровне: возможность взаимодействия с объектами, персонажами, решение головоломок.<br>
+– Система достижений и наград.</div></div>
+                                                                                                                                        </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-725" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Мобильное приложение - агрегатор городских культурных мест, мероприятий и событий пользователей</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p class="MsoNormal">
+</p>
+<p style="text-align: justify;">
+	 Приложения-агрегатора с афишей может быть актуальным и удобным решением для пользователей, которые ищут развлечения и события в своем городе или регионе. Единое приложение позволяет пользователям получать информацию о мероприятиях, концертах, выставках и других событиях в одном месте, избегая необходимости использовать несколько приложений или сайтов. Такое приложение может использовать алгоритмы рекомендаций на основе предпочтений и истории посещений пользователя, предлагая персонализированные события и рекомендации. <br>
+	 Также данный сервис будет отличаться от аналогов тем, что пользователи сами смогут публиковать свои события от мастер-классов и кружков по интересам до экскурсий по городу. А на карте будут обозначены памятники культурного наследия Югры и организации, в которых можно провести свой досуг
+</p>
+<p class="MsoNormal">
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><div style="text-align: justify;">
+	 Единое приложение с информацией по округу о мероприятиях, концертах, выставках и других событиях в одном месте. <br>
+	 Данный сервис должен предоставлять пользователям возможность публиковать свои события от мастер-классов и кружков по интересам до экскурсий по городу. На карте и в блоках главной страницы должны обозначаться памятники культурного наследия Югры и организации, в которых можно провести свой досуг. Также отображения мест для отдыха и досуга – кафе, гостиницы, места для пикника. А также необычные места, отражающие культурную индивидуальность региона, например, места стойбищ в которые можно приехать и покататься на оленях. <br>
+	 Должна быть вкладка с информационным гидом с возможностью добавлять аудио/видео/текстовые форматы. <br>
+	 Также следует учесть при подборе мероприятия желания пользователя: должны быть фильтры: по типу мероприятия, цене, времени и тд. Приложение может запоминать предпочтения пользователя и выдавать подборку по интересам <br>
+	 Также сервис должен включать личный кабинет. Где пользователь может сохранять в избранное интересные мероприятия или организации, сохранять купленные билеты, а также возможность разместить свое мероприятие. <br>
+	 Карточка мероприятия от пользователя должна охватывать полное описание события: дату, время, место, теги (мастер-класс, театр, концерт и тд.), возрастные ограничения, цену, фото, описание. Возможно рейтинг и отзывы пользователей. Карточка события от организации может выдавать только название и ссылку на сайт организации, пока та не даст разрешение на взятие материалов с сайта или социальных сетей. Необходимо учитывать технические и юридические аспекты, связанные с интеграцией информации о событиях
+</div></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p class="MsoNormal">
+</p>
+<div>
+	 Для оформления гида можно использовать <a href="https://data.admhmao.ru/datasets/?category=sport" class="u-link-no-icon">https://data.admhmao.ru/datasets/?category=sport</a>
+	&nbsp; <br>
+	 Презентация наработок по проекту <a href="https://www.figma.com/proto/GnOQEylAt0xJxKMkDjhB0p/lazy?type=design&amp;node-id=244-9691&amp;t=snXvHjhqkNfzczHi-1&amp;scaling=scale-down-width&amp;page-id=220%3A15953&amp;starting-point-node-id=244%3A9691&amp;mode=design" class="u-link-no-icon">https://www.figma.com/proto/GnOQEylAt0xJxKMkDjhB0p/lazy?type=design&amp;node-id=244-9691&amp;t=snXvHjhqkNfzczHi-1&amp;scaling=scale-down-width&amp;page-id=220%3A15953&amp;starting-point-node-id=244%3A9691&amp;mode=design</a>
+</div>
+<p class="MsoNormal">
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space"><p>
+	 Должен представлять собой единое приложение с афишей по округу на разнообразную тематику, с возможностью публиковать мероприятия как простым пользователям, так и организациям <br>
+</p>
+ <b>"При отсутствии фронтендера можно разработать чат бот"</b></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space"><p class="MsoNormal">
+</p>
+ Диана Бортюк (ник в discord: dianabortyuk) <br>
+ Попова Екатерина – поможет в работе над гидом (ник в discord: popovaekaterina_56607)
+<p class="MsoNormal">
+</p></div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-724" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Онлайн система планирования отпусков работников исполнительных органов</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Обеспечение эффективности работы: Планирование отпусков позволяет равномерно распределить нагрузку на персонал в течение года, что способствует более эффективной работе организации. Это позволяет избежать перегрузки или недостатка сотрудников в различные периоды времени.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p>
+</p>
+<p style="text-align: justify;">
+	 1) Система будет включать в себя модуль планирования отпуска каждым работником, в зависимости от количества положенных ему дней (берётся из ГИС УК).<br>
+	 2) Работник при планировании указывает периоды (в форме календаря), признак льготного отпуска и использования единовременной выплаты (которая полагается 1 раз в год). <br>
+	 2) Система должна проверять правильность количества дней и не давать запланировать больше или меньше этого числа. Также система должна проверять планирование отпуска соответвие Трудовому кодексу (как минимум один период должен быть не менее 14 дней).<br>
+	 3) Руководитель отдела/управления имеет право поставить признак взаимозаменяемости работникам определенных должностей. То есть работники не должны запланировать отпуск с пересекающимися периодами.<br>
+	 3) Штат работников имеет следующую иерархию: Исполнительный орган (Директор, зам. директор), Управление (Начальник управления), Отдел (Начальник отдела, специалисты). В примере приведено 1 Управление, состоящее из двух отделов. <br>
+	 4) После планирования отпуска происходит согласование отпусков: начальник отдела согласовывает отпуск каждому работнику отдела, начальник управления - каждому работнику управления, зам. директора - работникам курируемых подразделений, директор - всем работникам исполнительного органа. Также должна быть предусмотрена кнопка массового согласования для каждой должности.<br>
+	 5) Система должна быть визуально понятной, работник должен видеть количество положенных дней, количество дней в каждом периоде и сколько дней осталось.<br>
+	 6) В системе необходимо реализовать дашборд запланированных дней работниками. <br>
+</p>
+<p>
+</p>
+<p>
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden">График отпуска<br></div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Колесников Юрий (https://t.me/hantaton2023)</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Презентационные материалы</h2>
+                                                                    <div class="u-tasks__space">
+                                        <a class="u-link u-link-no-icon" href="https://hackathon.uriit.ru/upload/iblock/2f3/92khg4u80fyas7fc5osr4wnnvt80hgo7.xlsx">Скачать
+                                            файл</a>
+                                    </div>
+                                                                                                                                                </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-722" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Творчесая задача (Турнирная киберспортивная платформа)</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 С учетом роста интереса к киберспорту, необходимость в функциональной и удобной платформе для проведения киберспортивных турниров становится все более актуальной. Рынок киберспорта продолжает расти, а значит растет и спрос на качественные решения для организации и проведения турниров
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 Разработать многофункциональную платформу для проведения киберспортивных турниров, которая позволит пользователям регистрироваться на турниры, формировать команды, а организаторам - управлять процессом проведения турниров, отмечать результаты игр и т.д. Платформа должна быть максимально удобной и интуитивно понятной для пользователей всех уровней.
+</p></div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Итоговый продукт - это платформа, которая предоставляет возможность регистрации пользователей, создания и управления турнирами, формирования команд и отслеживания результатов. Платформа должна быть масштабируемой, чтобы поддерживать большое количество пользователей и турниров, и иметь простой и понятный интерфейс. Она должна также предоставлять инструменты для администраторов турниров, такие как система отслеживания результатов, управление участниками и командами, и другие функции, необходимые для эффективного управления киберспортивными турнирами.
+</p></div>
+                                                                                                                                        </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-720" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Веб приложение одаренных детей Югры</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space">В настоящее время, существует нехватка централизованной информации о одаренных детях, что затрудняет их вовлечение в различные проекты и программы. Создание такой базы данных позволит эффективно идентифицировать и привлекать талантливую молодежь для участия в проектах Движения Первых.</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden">Приложение с личным кабинетом одаренного ребенка, в котором будут выкладываться достижения ребенка. Полученная база данных одаренных детей необходима для поиска и приглашения детей на различные мероприятия.<br>
+ В рамках проекта необходимо реализовать:<br>
+ 1. Разработать структуру базы данных, которая будет включать в себя информацию о детях (ФИО, возраст, область одаренности, контактная информация и т.д.).<br>
+ 2. Создать интерфейс для ввода и обновления данных.&nbsp;<br>
+ 3. Реализовать функционал поиска по базе данных с возможностью фильтрации по различным параметрам.&nbsp;<br>
+ 4. Обеспечить безопасность и конфиденциальность данных.<br></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden">2. Скорректировать описание, вставив взамен вот это</div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Александр имя в дискорд winultra</div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-711" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Чат бот точек сбора и переработки отходов в Югре</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Построение чат-бота, который помогает со сбором перерабатываемых отходов, может стать значимым вкладом и устойчивым развитием в экологическое сознание югорчан
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 Перед вами стоит задача в создании телеграм - бота по поддержке экологического сознания граждан. Чат-бот, который предоставляет информацию о точках сбора и переработки отходов, может быть чрезвычайно полезным в наше время. Это помогает людям эффективнее управлять своими отходами, делая их переработку более удобной и экологически ответственной. При создании нужно учесть несколько аспектов: <br>
+	 · База данных: Соберите подробную информацию о точках сбора и переработки отходов в вашем регионе. В ресурсах будет указан сайт, с которого вы можете взять информацию, но вы можете добавить другие полезные материалы и свой функционал по обогащению знаний пользователя о переработке отходов <br>
+	 · Интерфейс: Разработайте удобный интерфейс для взаимодействия с пользователями. Это может быть чат-интерфейс, где пользователи могут задавать вопросы, интерактивная карта с метками точек сбора отходов, список тем по вопросам пользователя и др. Сделайте бот интересным в восприятии и увлекательным во взаимодействии с ним <br>
+	 · Актуальность данных: Обновляйте информацию регулярно, чтобы пользователи получали актуальную информацию о доступных точках сбора и переработки <br>
+	 · Информативность: Предоставляйте не только местоположение точек, но и типы отходов, которые принимаются, часы работы и другую полезную информацию. Бот может помимо основного функционала присылать уведомления на мероприятия экоцентров. Задавать вопросы пользователю, проверяя его знания о сортировке. Уведомлять и напоминать разобрать мусор и куда его увезти по настройкам пользователя
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 На сайте можно взять обучающие материалы и информацию о пунктах приема и правилах сдачи сырья <a href="https://sobiraet.yugra-ecology.ru/" class="u-link-no-icon">https://sobiraet.yugra-ecology.ru/</a>
+</p>
+ <a href="https://sobiraet.yugra-ecology.ru/" class="u-link-no-icon"></a></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space">За развитие задания до мобильного приложения задача становится повышенной сложности - возможно добавление баллов за сложность</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space"><span class="main-grid-cell-content" data-prevent-default="true">Диана Бортюк (ник в discord: dianabortyuk) </span></div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-706" role="tabpanel">
+                                                            <div class="u-text-small u-text-red">
+                                    Задание повышенной сложности
+                                </div>
+                                <div class="u-tasks__space">
+                                    Возможно получение дополнительных баллов
+                                </div>
+                                                        <h2 class="u-subtitle u-tasks__space">Чат-бот в Telegram в рабочие чаты с клиентами агентства</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="margin:0cm;margin-bottom:.0001pt;background:white">
+</p>
+<p style="text-align: justify;">
+	 У агентства много рабочих чатов с клиентами в Телеграме. В каждом чате обязательно есть менеджер проекта. В каждом чате регулярно появляются сообщения, обсуждения, и иногда - вопросы и задачи. Из-за большого количества сообщений, и человеческого фактора, какие-то чаты могут затеряться среди других, поэтому случается ситуация: клиент написал, задал вопрос/задачу, но ему так и не ответили. Такие сообщения мы считаем "зависшими". <br>
+	 Важно учитывать, что в чате может быть несколько представителей клиента и несколько представителей исполнителя.
+</p>
+<p style="margin:0cm;margin-bottom:.0001pt;background:white;orphans: 2; widows: 2">
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+</p>
+<p style="text-align: justify;">
+ <b>Бот должен:</b><br>
+	 Сообщить менеджеру проекта, ответственному за чат, &nbsp;что клиент написал в чат, но за N количество часов ему так ничего и не ответили. Если ответственный менеджер проигнорировал сообщение бота и ничего так клиенту и не ответил, бот отправляет сообщение руководителю. <br>
+	 Анализировать переписку между клиентом и ответственным менеджером. При появлении негатива в общении, сигнализировать руководителю о конфликте, чтобы тот разобрался в ситуации. <br>
+	 Планировать встречи с клиентом. В переписке зачастую назначаются даты и время для проведения звонка. После согласования необходимо призвать бота, и сообщить ему выбранные дату-время и тему звонка. Бот должен принять это как задачу, и организовать напоминание: за 24 часа и за 2 часа до звонка. В напоминании - "тэгает" постановщика и пишет тему звонка. <br>
+	 Административная панель управления (дополнительная задача) <br>
+	 В панели управления в виде веб-сайта можно видеть все рабочие чаты, количество и список участников в них. Зайдя в каждый из чатов - увидеть переписку из этих чатов (без возможности отправить в эту переписку сообщение).&nbsp; <br>
+	 Также должна существовать отдельная лента уведомлений: уведомления о "зависших" сообщениях, и уведомления о появлении негатива, с указанием чата и конкретных сообщений.
+</p>
+<p style="text-align: justify;">
+</p></div>
+                                                                                                                                                <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Шиянов Андрей Александрович (https://t.me/Finsech), руководитель проектной разработки в агентстве «Рецифра»
+ 
+</div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-702" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Чат бот портала «Цифровой гражданин Югры»</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Большое количество обращений граждан по вопросам обучения на курсах портала «Цифровой гражданин Югры»
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><div style="text-align: justify;">
+	 1. Перед вами стоит задача в создании телеграм - бота по сопровождению обучения на портале «Цифровой гражданин Югры». Ссылка на чат-бот будет отправляться в сопроводительном письме зачисленному на курс гражданину. С помощью этого бота слушатель должен суметь сделать запрос на: <br>
+	 · Инструкции по загрузке документов <br>
+	 · Инструкции по процессу обучения и входу в личный кабинет на образовательный портал <br>
+	 · Перенаправление на технического специалиста, если утерян / не пришел логин и пароль от личного кабинета или есть технические накладки в работе портала <br>
+	 · Уведомления на этапах обучения: загрузить документы, начало урока, дедлайны и тп. <br>
+	 · Для тех, кто уже проходил обучение и остался в боте, уведомление о начале новых курсов и других мероприятий <br>
+	 · Может быть материалы по компьютерной грамотности, полезные статьи (поиск подобных материалов на рассмотрение участникам) <br>
+	 · Чат бот в конце может предложить короткий опросник обратной связи или оценка услуги (степень удовлетворенности), оцените работу сайта (1-5); получили ли ответ на свой вопрос (да/нет); на сколько понравилось обучение (1-5) <br>
+	 · И решение других частых вопросов от слушателей: <br>
+	 я не помню на какой курс записался? <br>
+	 где мне узнать, как я прошел обучение? / прошел я обучение или нет? <br>
+	 что нужно сделать что бы получить удостоверение о повышении квалификации/сертификат? <br>
+	 я прошел обучение и не получил удостоверение о повышении квалификации/сертификат что делать? <br>
+	 был записан на курс но не успел пройти обучение, что делать дальше? <br>
+	 добавила документы на проверку, до сих&nbsp;пор&nbsp;не проверили? (инструкция как увидеть статус проверки документов) <br>
+	 Мне на почту не пришла информация по обучению <br>
+	 Когда начинается учеба? <br>
+	 Как я узнаю по какому курсу выдается удостоверение о повышении квалификации а по какому курсу сертификат? <br>
+	 Где я могу увидеть свой сертификат/удостоверение о повышении квалификации на сайте/где он отображается? <br>
+	 Как записаться на обучение/подать заявку? <br>
+	 По какому курсу пройти обучение для конкурса лэм? <br>
+	 2. Задача: Слушатель курса 2 потока (период обучения с 01.11 по 01.12.2023 года) «Цифровая трансформация в государственном и муниципальном управлении» (<a href="https://do.uriit.ru/course/view.php?id=110" class="u-link-no-icon">https://do.uriit.ru/course/view.php?id=110</a>) получил ссылку на обучение, прошел по ссылке, ввел логин и пароль и прошел обучение до 01.12.2023 года, сделайте так что бы у этого же слушателя в его личном кабинете на сайте (<a href="https://xn--80aaeecenmge3cbdb1afi0dvb4iqc.xn--p1ai/" class="u-link-no-icon">https://xn--80aaeecenmge3cbdb1afi0dvb4iqc.xn--p1ai/</a>) отобразился его прогресс обучения/результат обучения.&nbsp;&nbsp; <br>
+	 Важно: Одно из условий так же соблюсти временной показатель при отображении прогресса обучения, в случаи если слушатель курса окончил обучение 02.12.2023 прогресс обучения не может быть равен 100%.&nbsp; <br>
+	 Цель: в личном кабинете слушателя курса на сайте ЦГЮ во вкладки «мои заявки» или «мое обучение» отображается динамика обучения с Moodle или только результат (100% или удостоверение о повышении квалификации) <br>
+ <br>
+ <br>
+</div></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><div>
+ <a href="https://do.uriit.ru/" rel="noopener noreferrer" st="" yle="box-sizing: inherit; background-color: #ffffff; text-decoration: underline; -webkit-tap-highlight-color: #000000; color: var(--link-color); font-family: Roboto, -apple-system, &quot;apple color emoji&quot;, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap;" target="_blank" class="anchor-url u-link-no-icon">https://do.uriit.ru/</a>
+</div>
+<div>
+ <a class="anchor-url u-link-no-icon" href="https://xn--80aaeecenmge3cbdb1afi0dvb4iqc.xn--p1ai/" target="_blank" rel="noopener noreferrer" st="" yle="box-sizing: inherit; background-color: #ffffff; text-decoration: underline; -webkit-tap-highlight-color: #000000; color: var(--link-color); font-family: Roboto, -apple-system, &quot;apple color emoji&quot;, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre-wrap;">https://xn--80aaeecenmge3cbdb1afi0dvb4iqc.xn--p1ai/</a>
+</div></div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Диана Бортюк (ник в discord: dianabortyuk) </div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-698" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">«Таск-менеджер» для театра</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Данное ПО поможет сократить время принятия актуальных управленческих решений благодаря систематизации аналитики и повышения эффективности контроля поставленных задач.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 Создать программное обеспечение с интерфейсом календаря содержащего в себе боковые тематические вкладки "Реализация билетов, в том числе по Пушкинской карте" "График гастролей", "Контроль исполнения поручений", "Текущие задачи", "Регламент работы актерской труппы". При активации каждой из вкладок на календаре отображается информация соответствующая активированной вкладки. При активации вкладки конкретного дня календаря пользователь проваливается в окно с более подробной информацией в зависимости от активированной тематической вкладки. Пользователей программы до 20 сотрудников театра.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden">Информация по гастрольной деятельности, регламент работы актерской труппы.</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Итоговый продукт должен представлять из себя программное обеспечение "Таск-менеджер" с функционалом органайзера.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Симонов Сергей Владимирович, заместитель директора по административно-хозяйственной деятельности БУ Сургутский музыкально-драматический театр, тел. +7(346)253-03-10</div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-668" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">«Определение новостной повестки и ее содержимого по категориям»</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Все чаще встречаются научные исследования, в которых модели ML используются для анализа динамики измеримого показателя (курс акций, цена барреля нефти, распространение инфекционных заболеваний и т.д.). Такие методы используются для уточнения прогноза динамики показателя и показывают хорошие результаты, по сравнению с методами, которые опираются только на исторические данные (предыдущие временные точки). Для того чтобы определять влияние новостей на показатель, необходимо отобрать новости, которые относятся к тематике показателя и оценить тональности новости, т.е. понять положительно или отрицательно новость влияет на показатель.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 Перед вами ставится задача определить наличие в текстах новостей социально-экономических показателей. Вам необходимо научиться обрабатывать новости и выделять в них социально-экономические показатели. Надо понимать, что показатели могут быть достаточно длинными («темп роста реального среднедушевого денежного дохода населения»). После того как вы научились определять в новостях показатели, необходимо отнести новость к одной из категорий (исследуемому показателю). <br>
+	 Вам не будет выдан датасет, поэтому необходимо самостоятельно собрать новости и отфильтровать их на наличие показателей. Далее обучить модель выявлять показатели в тексте и в итоге классифицировать новость, отнеся ее к одной из категорий. <br>
+	 Вы можете использовать любые решения и инструменты. От готовых моделей на hugginface и github, до решений, основанных на LLM, но обязательно укажите в описании своего решения стек используемых технологий. <br>
+ <b>Описание входных данных</b> <br>
+	 Вам будет предоставлен список показателей, который будет использоваться для оценки решения. При разработке решения не стоит опираться исключительно на предложенные показатели, вы можете использовать более широкий список для обучения моделей. <br>
+ <br>
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><a href="http://huggingface.co/" class="u-link-no-icon">https://huggingface.co/</a><br>
+ <a href="http://github.com/" class="u-link-no-icon">https://github.com/</a><br>
+ <a href="http://www.kaggle.com/" class="u-link-no-icon">https://www.kaggle.com/</a> <br>
+ <a href="http://ej.hse.ru/data/2019/06/19/1485345307/%D0%A4%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B0.pdf" class="u-link-no-icon">https://ej.hse.ru/data/2019/06/19/1485345307/%D0%A4%D0%B5%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%B0.pdf</a><br>
+ <a href="http://financetp.fa.ru/jour/article/view/737/506" class="u-link-no-icon">https://financetp.fa.ru/jour/article/view/737/506</a><br>
+ <a href="http://youtu.be/i55749ii9xk?t=8058" class="u-link-no-icon">https://youtu.be/i55749ii9xk?t=8058</a> (Иван Бондаренко)</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 Ваша задача собрать датасет новостей, разработать алгоритм отнесения новости к исследуемому показателю и выделению в новости ключевых значений, связанных с исследуемым показателем. <br>
+</p>
+	Визуальное представление задачи на усмотрение команд</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space"><div>
+	 Негматулоев Одилжон Олимжонович,
+</div>
+<div>
+	 Соколков Олег Игоревич,
+</div>
+<div>
+	 Русанов Михаил Александрович
+</div></div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-660" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Чат-бот для telegram-канала «Технопарк Югры.INFO»</h2>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 1. Спроектировать и разработать бота для Telegram, который будет предоставлять всем желающим информацию о деятельности АУ «Технопарк высоких технологий, в том числе:<br>
+	 • информация о ближайших мероприятиях, проводимых АУ «Технопарк высоких технологий»;<br>
+	 • информация о государственных услугах, предоставляемых АУ «Технопарк высоких технологий»;<br>
+	 • информация «Как стать резидентом Технопарка Югры»;<br>
+	 • информация о конкурсе «Акселератор технологических стартапов»;<br>
+	 • информация о конкурсе «УМНИК»;<br>
+	 • информация о конкурсе «Молодой изобретатель Югры.<br>
+	 2. Настроить механизм выборочного автопостинга новостных материалов с официального сайта АУ «Технопарк высоких технологий» (<a href="https://www.tp86.ru/press-centr/news/" class="u-link-no-icon">https://www.tp86.ru/press-centr/news/</a>) в telegram-канал «Технопарк Югры.INFO» (<a href="https://t.me/Technopark_of_Ugra)" class="u-link-no-icon">https://t.me/Technopark_of_Ugra)</a>.
+</p></div>
+                                                                                                                                                <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Вылков Максим (ник в discord: vivident_), главный бизнес-аналитик регионального центра компетенций АУ «Технопарк высоких технологий»</div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-655" role="tabpanel">
+                                                            <div class="u-text-small u-text-red">
+                                    Задание повышенной сложности
+                                </div>
+                                <div class="u-tasks__space">
+                                    Возможно получение дополнительных баллов
+                                </div>
+                                                        <h2 class="u-subtitle u-tasks__space">"НЭО- пациент - Мобильное приложение для поддержки онкологических пациентов с нейроэндокринными опухолями"</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 При постановке онкологического диагноза пациент как правило растерян, дезориентирован, не знает особенностей своего заболевания.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 Цель мобильного приложения под названием "НЭО- пациент" помочь пациентам в их борьбе с орфанной формой онкологического заболевания. Приложение предложит инновационные функции и ресурсы, которые помогут пациентам получить необходимую информацию, поддержку и комфорт во время и после лечения. <br>
+	 Аналогов в России нет.<br>
+ <br>
+	 Описание функций:<br>
+	 1. Персонализированный контент: "НЭО- пациент" предоставит пользователю персонализированный контент, основанный на их типе рака, стадии заболевания и индивидуальных потребностях. Это включает в себя информацию о лечении, побочных эффектах, питании, физической активности и психологической поддержке.<br>
+	 2. Трекер симптомов: Приложение позволит пользователям отслеживать в динамике свои симптомы и побочные эффекты лечения. Они могут вести дневник своего самочувствия, записывать изменения веса, аппетита, уровня боли и других показателей здоровья. Это поможет пациентам и их врачам более точно оценивать эффективность лечения и принимать соответствующие меры. <br>
+	 3. Социальная поддержка: "НЭО- пациент" предоставит возможность присоединиться к группам поддержки, пациентским сообществам, равным консультантам чтобы обмениваться опытом, задавать вопросы и получать поддержку от людей, которые проходят или прошли через схожий опыт, получать юридическую помощь.<br>
+	 4. Уведомления и напоминания: Приложение предоставит пользователю персонализированные уведомления и напоминания о приеме лекарств, визитах к врачу, лабораторных анализах и других важных событиях. Это поможет пациентам быть в курсе своего лечения и не пропускать важные моменты.<br>
+	 5. Архив: Приложение позволит хранить результаты обследований, выписок, консультаций. Это поможет пациенту всегда предоставить нужный документ при получении консультации в любом лечебном учреждении России и за рубежом.<br>
+	 6. Связь с врачом: Приложение предоставит возможность врачу отслеживать динамику симптомов пациента в приложении "НЭО- пациент".<br>
+	 7. Ресурсы и информация: "НЭО- пациент" предложит базу данных с информацией о раке, его типах, лечении, клиниках. Пользователи могут найти ближайшие онкологические центры, фонды, фармкомпании с программами помощи онкопациентам.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Ресурсы</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><a href="https://docs.google.com/presentation/d/16cKF6Yt5tL3sibqFcsOcVlZWmlNSKjhQ/edit?usp=drive_link&amp;ouid=112157283542067114921&amp;rtpof=true&amp;sd=true" class="u-link-no-icon">https://docs.google.com/presentation/d/16cKF6Yt5tL3sibqFcsOcVlZWmlNSKjhQ/edit?usp=drive_link&amp;ouid=112157283542067114921&amp;rtpof=true&amp;sd=true</a></div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Емельянов Сергей Николаевич, Старший преподаватель кафедры автоматики и компьютерных систем СурГУ, заместитель директора по развитию ООО "Мединфоцентр", тел. 89226532856</div>
+                                                                                                            </div>
+                                                                                <div class="tab-pane fade u-tasks__main" id="nav-653" role="tabpanel">
+                                                        <h2 class="u-subtitle u-tasks__space">Мобильное приложение по поиску работы для лифтовиков</h2>
+                                                            <h2 class="u-text-yellow u-subtitle u-tasks__space">Актуальность</h2>
+                                <div class="fw-light u-tasks__space"><p style="text-align: justify;">
+	 В современном мире, где мобильные устройства являются неотъемлемой частью повседневной жизни людей, инновационные решения в сфере трудоустройства востребованы. Мобильное приложение для поиска работы для лифтовиков предоставит удобный и эффективный инструмент для соискателей данных вакансий.
+</p></div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание задачи</h2>
+                                <div class="fw-light u-tasks__space overflow-x-hidden"><p style="text-align: justify;">
+	 Техническое задание: Мобильное приложение по поиску работы для лифтовиков<br>
+ <b>1. Введение</b><br>
+ <b>1.1. </b><b>Целью</b> данного технического задания является описание требований к разработке мобильного приложения по поиску работы для лифтовиков. Приложение предназначено для упрощения и автоматизации процесса поиска и предоставления вакансий, связанных с профессией лифтовика.<br>
+ <b>1.2. </b><b>К</b><b>онтекст</b><br>
+	 В современном мире, где мобильные устройства являются неотъемлемой частью повседневной жизни людей, инновационные решения в сфере трудоустройства востребованы. Мобильное приложение для поиска работы для лифтовиков предоставит удобный и эффективный инструмент для соискателей данных вакансий.<br>
+ <b>2. Описание функций приложения </b><br>
+ <b>2.1. Регистрация и аутентификация</b><br>
+	 • Приложение должно предоставлять возможность пользователям создать учетную запись соискателя, соискателя – бригада, работодателя с помощью электронной почты.<br>
+	 • Для обеспечения безопасности и ограничения доступа, должна быть реализована аутентификация пользователя ПИН КОД при каждом входе в приложение.<br>
+ <b>2.2. Профиль </b><br>
+	 • Пользователь должен иметь возможность создать и редактировать свой профиль.<br>
+	 • При регистрации или редактировании профиля, пользователь должен предоставить информацию о своем опыте работы и квалификации в области лифтового дела.<br>
+	 • Пользователь должен иметь возможность загрузить сертификаты квалификации, связанную с его профилем.<br>
+	 • Резюме и другая информация пользователя должны быть доступны работодателям, предлагающим вакансии.<br>
+ <b>2.3. Поиск вакансий</b><br>
+	 • Пользователь должен иметь возможность просмотреть доступные вакансии по лифтовому делу.<br>
+	 • Поиск вакансий должен быть реализован с помощью фильтров, позволяющих пользователю указать критерии поиска, такие как локация, опыт работы, тип занятости и др.<br>
+	 • Пользователь должен иметь возможность просмотреть детальную информацию о вакансии, включая описание работы, требования, условия, зарплатные условия и контактную информацию работодателя.<br>
+ <b>2.3.1. </b>Создание вакансий (работодатель)<br>
+ <b>2.4. Отклик на вакансии</b><br>
+	 • Пользователь должен иметь возможность откликнуться на вакансии, прислав свое резюме и контактные данные работодателю.<br>
+	 • Работодатели, размещающие вакансии, должны иметь возможность получать уведомления о новых откликах и просматривать информацию о соискателях.<br>
+ <b>2.4.1 </b>Просмотр откликов на вакансии для работодателя<br>
+ <b>2.5. Добавление сертификата</b><br>
+	 • Пользователь должен иметь возможность добавить и удалять сертификат квалификации<br>
+ <b>2.6. Уведомления</b><br>
+	 • Пользователь должен получать уведомления о новых вакансиях, ответах от работодателей и других событиях, связанных с его аккаунтом в приложении.<br>
+	 • Пользователь должен иметь возможность настроить предпочтения уведомлений и частоту их получения.<br>
+	 • Пользователь должен получать уведомления о подписанных фильтрах (например: пользователь подписался на уведомление где настроил фильтр, и все вакансии соответствующие фильтру уведомляют пользователя)<br>
+ <b>3. Технические требования</b><br>
+ <b>3.1. Платформа</b><br>
+	 • Приложение должно быть разработано для мобильных устройств на базе операционных систем Android и iOS.<br>
+	 • Рекомендуется использовать современные фреймворки и языки программирования, такие как React Native, Flutter.<br>
+ <b>3.2. База данных</b><br>
+	 • Приложение должно использовать базу данных для хранения информации о пользователях, вакансиях и сообщениях.<br>
+	 • Рекомендуется использовать реляционную базу данных, такую как MySQL.<br>
+ <b>3.3. API</b><br>
+	 • Для обмена данными между клиентской и серверной частью приложения необходимо использовать предоставляемое API.<br>
+	 • <a href="https://wiki.arpicon.ru/docs/rest-api-arpikon-rabota/" class="u-link-no-icon">https://wiki.arpicon.ru/docs/rest-api-arpikon-rabota/</a><br>
+ <b>3.4. Дизайн и пользовательский интерфейс</b><br>
+	 • Приложение должно иметь современный и интуитивно понятный пользовательский интерфейс.<br>
+	 • Рекомендуется использовать дизайн-паттерны и рекомендации, соответствующие ОС Android и iOS, для обеспечения единообразного пользовательского опыта.<br>
+ <b>3.5. Тестирование</b><br>
+	 • Приложение должно быть подвергнуто тщательному тестированию для обеспечения его качества и надежности.<br>
+	 • Рекомендуется использовать автоматизированное тестирование, такое как модульное тестирование и тестирование пользовательского интерфейса.<br>
+</p></div>
+                                                                                                                    <h2 class="u-text-yellow u-subtitle u-tasks__space">Описание итогового продукта</h2>
+                                <div class="fw-light u-tasks__space">Разработанное и протестированное мобильное приложение MVP, соответствующее требованиям, описанным в данном техническом задании.</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Контактные данные</h2>
+                                <div class="fw-light u-tasks__space">Ягафаров Денис Рафисович, технический директор ООО Арпикон, тел. +7(922)258-08-02</div>
+                                                                                        <h2 class="u-text-yellow u-subtitle u-tasks__space">Презентационные материалы</h2>
+                                                                    <div class="u-tasks__space">
+                                        <a class="u-link u-link-no-icon" href="https://hackathon.uriit.ru/upload/iblock/ebb/1j85cfh3b890qe7t5v0pvreksud13tvm.docx">Скачать
+                                            файл</a>
+                                    </div>
+                                                                                                                                                </div>
+                                                </div>
+        </div>
+    </div>
+
+
+        </div>
+
+
+    </div>
+
+  
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer position-relative">
+        <div class="container">
+                    <br><br>
+        
+        <div class="row">
+            <div class="col-10 text-uppercase u-text-small">
+                <div class="">
+                    © 2023 / VIII окружной Хакатон «<span>VIII окружной хакатон «Хантатон-2023»</span>»
+                </div>
+                <p class="">
+                    Разработка и поддержка <a href="https://uriit.ru/" target="_blank">«Югорский НИИ информационных
+                        технологий»</a>.<br> Все права защищены
+                </p>
+            </div>
+            <div class="col-2">
+                <div class="d-flex justify-content-center">
+                    <a href="https://vk.com/event129228300" target="_blank">
+                        <img src="./index_files/vk.svg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+<script type="text/javascript">if(!window.BX)window.BX={};if(!window.BX.message)window.BX.message=function(mess){if(typeof mess==='object'){for(let i in mess) {BX.message[i]=mess[i];} return true;}};</script>
+<script type="text/javascript">(window.BX||top.BX).message({'JS_CORE_LOADING':'Загрузка...','JS_CORE_NO_DATA':'- Нет данных -','JS_CORE_WINDOW_CLOSE':'Закрыть','JS_CORE_WINDOW_EXPAND':'Развернуть','JS_CORE_WINDOW_NARROW':'Свернуть в окно','JS_CORE_WINDOW_SAVE':'Сохранить','JS_CORE_WINDOW_CANCEL':'Отменить','JS_CORE_WINDOW_CONTINUE':'Продолжить','JS_CORE_H':'ч','JS_CORE_M':'м','JS_CORE_S':'с','JSADM_AI_HIDE_EXTRA':'Скрыть лишние','JSADM_AI_ALL_NOTIF':'Показать все','JSADM_AUTH_REQ':'Требуется авторизация!','JS_CORE_WINDOW_AUTH':'Войти','JS_CORE_IMAGE_FULL':'Полный размер'});</script><script type="text/javascript" src="./index_files/core.js"></script><script>BX.setJSList(['/bitrix/js/main/core/core_ajax.js','/bitrix/js/main/core/core_promise.js','/bitrix/js/main/polyfill/promise/js/promise.js','/bitrix/js/main/loadext/loadext.js','/bitrix/js/main/loadext/extension.js','/bitrix/js/main/polyfill/promise/js/promise.js','/bitrix/js/main/polyfill/find/js/find.js','/bitrix/js/main/polyfill/includes/js/includes.js','/bitrix/js/main/polyfill/matches/js/matches.js','/bitrix/js/ui/polyfill/closest/js/closest.js','/bitrix/js/main/polyfill/fill/main.polyfill.fill.js','/bitrix/js/main/polyfill/find/js/find.js','/bitrix/js/main/polyfill/matches/js/matches.js','/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js','/bitrix/js/main/core/core.js','/bitrix/js/main/polyfill/intersectionobserver/js/intersectionobserver.js','/bitrix/js/main/lazyload/dist/lazyload.bundle.js','/bitrix/js/main/polyfill/core/dist/polyfill.bundle.js','/bitrix/js/main/parambag/dist/parambag.bundle.js']);
+</script>
+<script type="text/javascript">(window.BX||top.BX).message({'LANGUAGE_ID':'ru','FORMAT_DATE':'DD.MM.YYYY','FORMAT_DATETIME':'DD.MM.YYYY HH:MI:SS','COOKIE_PREFIX':'BITRIX_SM','SERVER_TZ_OFFSET':'18000','UTF_MODE':'Y','SITE_ID':'dg','SITE_DIR':'/2023/','USER_ID':'226','SERVER_TIME':'1700587873','USER_TZ_OFFSET':'0','USER_TZ_AUTO':'Y','bitrix_sessid':'b1370df0cf5c8e09f91aa71849302f73'});</script><script type="text/javascript" src="./index_files/kernel_main_v1.js"></script>
+<script type="text/javascript" src="./index_files/core_ls.js"></script>
+<script type="text/javascript" src="./index_files/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./index_files/fancybox.umd.js"></script>
+<script type="text/javascript">BX.setJSList(['/bitrix/js/main/session.js','/bitrix/js/main/pageobject/pageobject.js','/bitrix/js/main/core/core_window.js','/bitrix/js/main/date/main.date.js','/bitrix/js/main/core/core_date.js','/bitrix/js/main/utils.js','/bitrix/js/main/dd.js','/local/templates/hakaton_v6_2023/js/bootstrap.bundle.min.js','/local/templates/hakaton_v6_2023/js/owl.js','/local/templates/hakaton_v6_2023/js/main.js','/local/templates/hakaton_v6_2023/js/jquery.mask.js','/local/templates/hakaton_v6_2023/js/wow.min.js','/local/templates/hakaton_v6_2023/js/bootstrap-select.js','/local/templates/hakaton_v6_2023/js/html2pdf.bundle.min.js','/local/templates/hakaton_v6_2023/components/bitrix/menu/header/script.js']);</script>
+<script type="text/javascript">BX.setCSSList(['/local/templates/hakaton_v6_2023/components/bitrix/news.list/tasks/style.css','/local/templates/hakaton_v6_2023/css/bootstrap.min.css','/local/templates/hakaton_v6_2023/css/owl.css','/local/templates/hakaton_v6_2023/css/animate.min.css','/local/templates/hakaton_v6_2023/css/header.css','/local/templates/hakaton_v6_2023/css/registration.css','/local/templates/hakaton_v6_2023/css/footer.css','/local/templates/hakaton_v6_2023/css/form.css','/local/templates/hakaton_v6_2023/css/multiselect.css','/local/templates/hakaton_v6_2023/css/animations.css','/local/templates/hakaton_v6_2023/css/personal_account.css','/local/templates/hakaton_v6_2023/css/judge.css','/local/templates/hakaton_v6_2023/css/lk_org.css','/local/templates/hakaton_v6_2023/components/bitrix/menu/header/style.css','/local/templates/hakaton_v6_2023/styles.css','/local/templates/hakaton_v6_2023/template_styles.css']);</script>
+<script type="text/javascript">
+BX.message({"SessExpired": 'Ваш сеанс работы с сайтом завершен из-за отсутствия активности в течение 1440 мин. Введенные на странице данные не будут сохранены. Скопируйте их перед тем, как закроете или обновите страницу.'});
+bxSession.Expand('b1370df0cf5c8e09f91aa71849302f73.668cccbc4f38a22aa62aa3453ea02b31dc4d79eaa83f0406bbe9c033b0a81b2d');
+</script>
+
+
+
+<script type="text/javascript" src="./index_files/template_6a78b7c73cfbaa4f5cd4bbc583b5d1ad_v1.js"></script>
+<script type="text/javascript">var _ba = _ba || []; _ba.push(["aid", "4f289f198af2327ceef2435bd0100507"]); _ba.push(["host", "hackathon.uriit.ru"]); (function() {var ba = document.createElement("script"); ba.type = "text/javascript"; ba.async = true;ba.src = (document.location.protocol == "https:" ? "https://" : "http://") + "bitrix.info/ba.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ba, s);})();</script>
+
+
+<script src="./index_files/captcha.js" defer=""></script>
+
+<script>
+            BX.ready(function () {
+                let headerNav = BX("headerNav"),
+                    content = BX("content"),
+                    BxPanel = BX.admin.panel,
+                    FxPanel = function () {
+                        if (window.pageYOffset >= BxPanel.DIV.clientHeight && BxPanel.isFixed() === false) {
+                            headerNav.style.top = 0;
+                            if (content)
+                                content.style.top = '';
+                        } else if (BxPanel.isFixed() === true) {
+                            headerNav.style.top = BxPanel.DIV.clientHeight + "px";
+                            if (content)
+                                content.style.marginTop = headerNav.clientHeight + "px";
+                        } else {
+                            headerNav.style.top = BxPanel.DIV.clientHeight - window.pageYOffset + "px";
+                            if (content)
+                                content.style.marginTop = headerNav.clientHeight - window.pageYOffset + "px";
+                        }
+                    };
+                if (!!headerNav) {
+                    FxPanel();
+                    window.onscroll = FxPanel;
+                    BX.addCustomEvent('onTopPanelCollapse', BX.delegate(FxPanel, this));
+                    BX.addCustomEvent('onTopPanelFix', BX.delegate(FxPanel, this));
+                }
+            });
+        </script>
+<script>
+        $(document).ready(function () {
+            document.getElementsByClassName('u-tasks__tab')[0].classList.add("active");
+            document.getElementsByClassName('u-tasks__main')[0].classList.add("active", "show");
+            $('.u-tasks a').each(function () {
+                $(this).addClass('u-link-no-icon');
+            });
+        });
+    </script>
+
+
+
+</body></html>
