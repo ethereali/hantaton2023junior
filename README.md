@@ -1,2 +1,2 @@
-# https://ethereali.github.io/hantaton2023juniour/
-hantaton2023juniour
+# https://ethereali.github.io/hantaton2023junior/
+hantaton2023junior
